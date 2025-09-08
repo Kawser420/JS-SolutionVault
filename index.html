@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional JavaScript Solutions</title>
+    <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2ecc71;
+        --accent-color: #e74c3c;
+        --dark-color: #2c3e50;
+        --light-color: #ecf0f1;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 20px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--dark-color)
+        );
+        color: white;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .problems-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .problem-card {
+        background: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease;
+      }
+
+      .problem-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .problem-card h2 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--light-color);
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: var(--dark-color);
+      }
+
+      input,
+      button {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: var(--dark-color);
+      }
+
+      .result {
+        margin-top: 15px;
+        padding: 15px;
+        background-color: var(--light-color);
+        border-radius: 5px;
+        font-weight: 600;
+        display: none;
+      }
+
+      .success {
+        background-color: #d4edda;
+        color: #155724;
+        display: block;
+      }
+
+      .error {
+        background-color: #f8d7da;
+        color: #721c24;
+        display: block;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        padding: 20px;
+        color: var(--dark-color);
+      }
+
+      @media (max-width: 768px) {
+        .problems-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Professional JavaScript Solutions</h1>
+        <p class="description">
+          Refactored code with modern JavaScript practices and error handling
+        </p>
+      </header>
+
+      <div class="problems-grid">
+        <!-- Problem 1: Kilometer to Meter -->
+        <div class="problem-card">
+          <h2>Kilometer to Meter Converter</h2>
+          <div class="input-group">
+            <label for="kilometerInput">Enter Kilometers:</label>
+            <input
+              type="number"
+              id="kilometerInput"
+              placeholder="Enter distance in kilometers"
+              step="0.01"
+              min="0"
+            />
+          </div>
+          <button onclick="handleKilometerConversion()">
+            Convert to Meters
+          </button>
+          <div id="kilometerResult" class="result"></div>
+        </div>
+
+        <!-- Problem 2: Budget Calculator -->
+        <div class="problem-card">
+          <h2>Budget Calculator</h2>
+          <div class="input-group">
+            <label for="watchQuantity">Watches (₦50 each):</label>
+            <input
+              type="number"
+              id="watchQuantity"
+              placeholder="Quantity"
+              min="0"
+            />
+          </div>
+          <div class="input-group">
+            <label for="phoneQuantity">Phones (₦100 each):</label>
+            <input
+              type="number"
+              id="phoneQuantity"
+              placeholder="Quantity"
+              min="0"
+            />
+          </div>
+          <div class="input-group">
+            <label for="laptopQuantity">Laptops (₦500 each):</label>
+            <input
+              type="number"
+              id="laptopQuantity"
+              placeholder="Quantity"
+              min="0"
+            />
+          </div>
+          <button onclick="handleBudgetCalculation()">Calculate Total</button>
+          <div id="budgetResult" class="result"></div>
+        </div>
+
+        <!-- Problem 3: Hotel Cost -->
+        <div class="problem-card">
+          <h2>Hotel Cost Calculator</h2>
+          <div class="input-group">
+            <label for="daysInput">Number of Days:</label>
+            <input
+              type="number"
+              id="daysInput"
+              placeholder="Enter number of days"
+              min="1"
+            />
+          </div>
+          <button onclick="handleHotelCostCalculation()">Calculate Cost</button>
+          <div id="hotelResult" class="result"></div>
+        </div>
+
+        <!-- Problem 4: Mega Friend -->
+        <div class="problem-card">
+          <h2>Longest Name Finder</h2>
+          <div class="input-group">
+            <label for="namesInput">Enter names (comma separated):</label>
+            <input
+              type="text"
+              id="namesInput"
+              placeholder="e.g., John, Jane, Alexander"
+            />
+          </div>
+          <button onclick="handleLongestNameSearch()">Find Longest Name</button>
+          <div id="nameResult" class="result"></div>
+        </div>
+      </div>
+
+      <footer>
+        <p>Refactored with modern JavaScript practices and error handling</p>
+      </footer>
+    </div>
+
+    <script>
+      // Problem 1: Kilometer to Meter Conversion
+      const kilometerToMeter = (kilometers) => {
+        // Validate input
+        if (kilometers === undefined || kilometers === null) {
+          throw new Error("Input is required");
+        }
+
+        if (typeof kilometers !== "number") {
+          throw new Error("Input must be a number");
+        }
+
+        if (kilometers < 0) {
+          throw new Error("Input must be a non-negative value");
+        }
+
+        // Convert kilometers to meters
+        return kilometers * 1000;
+      };
+
+      // Problem 2: Budget Calculator
+      const budgetCalculator = (watches, phones, laptops) => {
+        // Validate inputs
+        const validateQuantity = (quantity, itemName) => {
+          if (quantity === undefined || quantity === null) {
+            throw new Error(`${itemName} quantity is required`);
+          }
+
+          if (!Number.isInteger(quantity)) {
+            throw new Error(`${itemName} quantity must be an integer`);
+          }
+
+          if (quantity < 0) {
+            throw new Error(`${itemName} quantity must be non-negative`);
+          }
+        };
+
+        validateQuantity(watches, "Watch");
+        validateQuantity(phones, "Phone");
+        validateQuantity(laptops, "Laptop");
+
+        // Calculate total budget
+        const watchPrice = 50;
+        const phonePrice = 100;
+        const laptopPrice = 500;
+
+        return (
+          watches * watchPrice + phones * phonePrice + laptops * laptopPrice
+        );
+      };
+
+      // Problem 3: Hotel Cost Calculator
+      const hotelCost = (days) => {
+        // Validate input
+        if (days === undefined || days === null) {
+          throw new Error("Number of days is required");
+        }
+
+        if (!Number.isInteger(days)) {
+          throw new Error("Number of days must be an integer");
+        }
+
+        if (days <= 0) {
+          throw new Error("Number of days must be a positive integer");
+        }
+
+        // Calculate hotel cost based on days
+        let totalCost = 0;
+
+        if (days <= 10) {
+          totalCost = days * 500;
+        } else if (days <= 20) {
+          totalCost = 10 * 500 + (days - 10) * 400;
+        } else {
+          totalCost = 10 * 500 + 10 * 400 + (days - 20) * 300;
+        }
+
+        return totalCost;
+      };
+
+      // Problem 4: Mega Friend (Longest Name Finder)
+      const megaFriend = (names) => {
+        // Validate input
+        if (!Array.isArray(names)) {
+          throw new Error("Input must be an array");
+        }
+
+        if (names.length === 0) {
+          throw new Error("Array must contain at least one name");
+        }
+
+        // Find the longest name
+        let longestName = "";
+
+        for (const name of names) {
+          if (typeof name !== "string") {
+            throw new Error("All array elements must be strings");
+          }
+
+          if (name.trim().length > longestName.length) {
+            longestName = name.trim();
+          }
+        }
+
+        return longestName;
+      };
+
+      // UI Handler Functions
+      const handleKilometerConversion = () => {
+        const inputElement = document.getElementById("kilometerInput");
+        const resultElement = document.getElementById("kilometerResult");
+
+        try {
+          const kilometers = parseFloat(inputElement.value);
+
+          if (isNaN(kilometers)) {
+            throw new Error("Please enter a valid number");
+          }
+
+          const meters = kilometerToMeter(kilometers);
+          resultElement.textContent = `${kilometers} km = ${meters.toLocaleString()} meters`;
+          resultElement.className = "result success";
+        } catch (error) {
+          resultElement.textContent = `Error: ${error.message}`;
+          resultElement.className = "result error";
+        }
+      };
+
+      const handleBudgetCalculation = () => {
+        const watchQty =
+          parseInt(document.getElementById("watchQuantity").value) || 0;
+        const phoneQty =
+          parseInt(document.getElementById("phoneQuantity").value) || 0;
+        const laptopQty =
+          parseInt(document.getElementById("laptopQuantity").value) || 0;
+        const resultElement = document.getElementById("budgetResult");
+
+        try {
+          const totalBudget = budgetCalculator(watchQty, phoneQty, laptopQty);
+          resultElement.innerHTML = `
+                    <div>Watches: ${watchQty} × ₦50 = ₦${(
+            watchQty * 50
+          ).toLocaleString()}</div>
+                    <div>Phones: ${phoneQty} × ₦100 = ₦${(
+            phoneQty * 100
+          ).toLocaleString()}</div>
+                    <div>Laptops: ${laptopQty} × ₦500 = ₦${(
+            laptopQty * 500
+          ).toLocaleString()}</div>
+                    <div style="margin-top: 10px; border-top: 1px solid #999; padding-top: 5px;">
+                        <strong>Total Budget: ₦${totalBudget.toLocaleString()}</strong>
+                    </div>
+                `;
+          resultElement.className = "result success";
+        } catch (error) {
+          resultElement.textContent = `Error: ${error.message}`;
+          resultElement.className = "result error";
+        }
+      };
+
+      const handleHotelCostCalculation = () => {
+        const daysInput = document.getElementById("daysInput");
+        const resultElement = document.getElementById("hotelResult");
+
+        try {
+          const days = parseInt(daysInput.value);
+
+          if (isNaN(days)) {
+            throw new Error("Please enter a valid number of days");
+          }
+
+          const totalCost = hotelCost(days);
+
+          let rateDescription = "";
+          if (days <= 10) {
+            rateDescription = `₦500 per day for all ${days} days`;
+          } else if (days <= 20) {
+            rateDescription = `₦500 per day for first 10 days + ₦400 per day for next ${
+              days - 10
+            } days`;
+          } else {
+            rateDescription = `₦500 per day for first 10 days + ₦400 per day for next 10 days + ₦300 per day for remaining ${
+              days - 20
+            } days`;
+          }
+
+          resultElement.innerHTML = `
+                    <div>${rateDescription}</div>
+                    <div style="margin-top: 10px;"><strong>Total Cost: ₦${totalCost.toLocaleString()}</strong></div>
+                `;
+          resultElement.className = "result success";
+        } catch (error) {
+          resultElement.textContent = `Error: ${error.message}`;
+          resultElement.className = "result error";
+        }
+      };
+
+      const handleLongestNameSearch = () => {
+        const namesInput = document.getElementById("namesInput");
+        const resultElement = document.getElementById("nameResult");
+
+        try {
+          const namesString = namesInput.value;
+
+          if (!namesString.trim()) {
+            throw new Error("Please enter at least one name");
+          }
+
+          const namesArray = namesString
+            .split(",")
+            .map((name) => name.trim())
+            .filter((name) => name !== "");
+
+          if (namesArray.length === 0) {
+            throw new Error("Please enter at least one valid name");
+          }
+
+          const longestName = megaFriend(namesArray);
+          resultElement.textContent = `The longest name is: "${longestName}" (${longestName.length} characters)`;
+          resultElement.className = "result success";
+        } catch (error) {
+          resultElement.textContent = `Error: ${error.message}`;
+          resultElement.className = "result error";
+        }
+      };
+    </script>
+  </body>
+</html>
