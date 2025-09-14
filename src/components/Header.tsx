@@ -3,7 +3,6 @@ import { SearchIcon, MenuIcon } from "./icons/Icons";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Theme } from "../../types";
 
-// FIX: Added the 'themes' property to the HeaderProps interface to correctly type the component's props.
 interface HeaderProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
