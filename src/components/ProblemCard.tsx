@@ -117,7 +117,6 @@ const ProblemCardComponent: React.FC<ProblemCardProps> = ({ problem }) => {
 
   const solverCode = useMemo(() => {
     const fnString = problem.solver.toString();
-    // Basic formatting to remove the function wrapper
     const bodyMatch = fnString.match(/\{(.*)\}/s);
     if (bodyMatch && bodyMatch[1]) {
       return bodyMatch[1]
