@@ -1,10 +1,10 @@
-import { ProblemInput } from "../types";
+import { ProblemInput } from "../../types";
 
 // General purpose error for parsing failures
 class ParsingError extends Error {
   constructor(message: string) {
     super(message);
-    this.name = 'ParsingError';
+    this.name = "ParsingError";
   }
 }
 
@@ -15,14 +15,16 @@ class ParsingError extends Error {
  * @returns The parsed number.
  */
 export const parseNumber = (value: string, fieldName: string): number => {
-    if (value === null || value.trim() === '') {
-        throw new ParsingError(`${fieldName} cannot be empty.`);
-    }
-    const num = parseFloat(value);
-    if (isNaN(num)) {
-        throw new ParsingError(`${fieldName} must be a valid number. Received: "${value}"`);
-    }
-    return num;
+  if (value === null || value.trim() === "") {
+    throw new ParsingError(`${fieldName} cannot be empty.`);
+  }
+  const num = parseFloat(value);
+  if (isNaN(num)) {
+    throw new ParsingError(
+      `${fieldName} must be a valid number. Received: "${value}"`
+    );
+  }
+  return num;
 };
 
 /**
@@ -32,11 +34,11 @@ export const parseNumber = (value: string, fieldName: string): number => {
  * @returns The parsed integer.
  */
 export const parseInteger = (value: string, fieldName: string): number => {
-    const num = parseNumber(value, fieldName);
-    if (!Number.isInteger(num)) {
-        throw new ParsingError(`${fieldName} must be a whole number (integer).`);
-    }
-    return num;
+  const num = parseNumber(value, fieldName);
+  if (!Number.isInteger(num)) {
+    throw new ParsingError(`${fieldName} must be a whole number (integer).`);
+  }
+  return num;
 };
 
 /**
@@ -46,20 +48,22 @@ export const parseInteger = (value: string, fieldName: string): number => {
  * @returns An array of numbers.
  */
 export const parseNumberArray = (value: string): number[] => {
-    if (value === null || value.trim() === '') {
-        return [];
+  if (value === null || value.trim() === "") {
+    return [];
+  }
+  const stringArray = value
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const numArray = stringArray.map((s) => {
+    const num = parseFloat(s);
+    if (isNaN(num)) {
+      throw new ParsingError(`Invalid number found in array: "${s}"`);
     }
-    const stringArray = value.split(',').map(s => s.trim()).filter(Boolean);
-    const numArray = stringArray.map(s => {
-        const num = parseFloat(s);
-        if (isNaN(num)) {
-            throw new ParsingError(`Invalid number found in array: "${s}"`);
-        }
-        return num;
-    });
-    return numArray;
+    return num;
+  });
+  return numArray;
 };
-
 
 /**
  * Parses a comma-separated string into an array of strings.
@@ -68,12 +72,14 @@ export const parseNumberArray = (value: string): number[] => {
  * @returns An array of strings.
  */
 export const parseStringArray = (value: string): string[] => {
-    if (value === null || value.trim() === '') {
-        return [];
-    }
-    return value.split(',').map(s => s.trim()).filter(Boolean);
+  if (value === null || value.trim() === "") {
+    return [];
+  }
+  return value
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
 };
-
 
 /**
  * Parses a string into a JSON object, with clear error handling.
@@ -82,12 +88,12 @@ export const parseStringArray = (value: string): string[] => {
  * @returns The parsed object or array.
  */
 export const parseJSON = (value: string, fieldName: string): any => {
-    if (value === null || value.trim() === '') {
-        throw new ParsingError(`${fieldName} cannot be empty.`);
-    }
-    try {
-        return JSON.parse(value);
-    } catch (error) {
-        throw new ParsingError(`Invalid JSON format in ${fieldName}.`);
-    }
+  if (value === null || value.trim() === "") {
+    throw new ParsingError(`${fieldName} cannot be empty.`);
+  }
+  try {
+    return JSON.parse(value);
+  } catch (error) {
+    throw new ParsingError(`Invalid JSON format in ${fieldName}.`);
+  }
 };

@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Theme } from '../types';
-import { PaletteIcon, CheckIcon } from './icons/Icons';
+import React, { useState, useRef, useEffect } from "react";
+import { Theme } from "../../types";
+import { PaletteIcon, CheckIcon } from "./icons/Icons";
 
 interface ThemeSwitcherProps {
   themes: Theme[];
@@ -8,18 +8,25 @@ interface ThemeSwitcherProps {
   setTheme: (theme: string) => void;
 }
 
-export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ themes, currentTheme, setTheme }) => {
+export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
+  themes,
+  currentTheme,
+  setTheme,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -42,7 +49,9 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ themes, currentThe
               className="w-full text-left flex items-center justify-between px-4 py-2 text-sm text-[--text-color] hover:bg-[--border-color]"
             >
               <span>{theme.name}</span>
-              {currentTheme === theme.className && <CheckIcon className="h-4 w-4 text-[--primary-color]" />}
+              {currentTheme === theme.className && (
+                <CheckIcon className="h-4 w-4 text-[--primary-color]" />
+              )}
             </button>
           ))}
         </div>
