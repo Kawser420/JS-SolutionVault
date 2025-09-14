@@ -1,0 +1,382 @@
+import { Problem, Category, InputType } from '../../types';
+import {
+  solveEvenOrOdd,
+  solvePalindrome,
+  solvePrimeNumber,
+  solveLeapYear,
+  solveAnagram,
+  solveNumberSign,
+  solveValidParentheses,
+  solveArmstrongNumber,
+  solvePerfectNumber,
+  solveStrongNumber,
+  solveHarshadNumber,
+  solveHappyNumber,
+  solveDisariumNumber,
+  solveNeonNumber,
+  solveSpyNumber,
+  solvePronicNumber,
+  solveKaprekarNumber,
+  solveDuckNumber,
+  solveEvilNumber,
+  solveKeithNumber,
+  solveSmithNumber,
+  solveUglyNumber,
+  solveAbundantNumber,
+  solveDeficientNumber,
+  solveAmicableNumbers,
+  solveTriangularNumber,
+  solveEmirpNumber,
+  solveValidateEmail,
+  solveValidateURL,
+  solveIsWeekend,
+  solveCheckISBN,
+  solvePalindromicNumber,
+  solvePerfectSquare,
+  solveFibonacciChecker
+} from './solvers';
+
+export const CHECKER_PROBLEMS: Problem[] = [
+  {
+    title: 'Even or Odd Checker',
+    category: Category.Checker,
+    solverName: 'solveEvenOrOdd',
+    inputs: [
+      { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: 'e.g., 42' },
+    ],
+    buttonText: 'Check Even/Odd',
+    solver: solveEvenOrOdd,
+  },
+  {
+    title: 'Palindrome Checker',
+    category: Category.Checker,
+    solverName: 'solvePalindrome',
+    inputs: [
+      { id: 'str', label: 'Enter a string:', type: InputType.Text, placeholder: 'racecar' },
+    ],
+    buttonText: 'Check Palindrome',
+    solver: solvePalindrome,
+  },
+  {
+    title: 'Prime Number Checker',
+    category: Category.Checker,
+    solverName: 'solvePrimeNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: 'e.g., 29', min: 0 }
+    ],
+    buttonText: 'Check Prime',
+    solver: solvePrimeNumber
+  },
+  {
+    title: 'Leap Year Checker',
+    category: Category.Checker,
+    solverName: 'solveLeapYear',
+    inputs: [
+        { id: 'year', label: 'Enter a year:', type: InputType.Number, placeholder: 'e.g., 2024', min: 0 }
+    ],
+    buttonText: 'Check Leap Year',
+    solver: solveLeapYear
+  },
+  {
+    title: 'Anagram Checker',
+    category: Category.Checker,
+    solverName: 'solveAnagram',
+    inputs: [
+        { id: 'str1', label: 'Enter first string:', type: InputType.Text, placeholder: 'listen' },
+        { id: 'str2', label: 'Enter second string:', type: InputType.Text, placeholder: 'silent' }
+    ],
+    buttonText: 'Check Anagram',
+    solver: solveAnagram
+  },
+  {
+    title: 'Number Sign Checker',
+    category: Category.Checker,
+    solverName: 'solveNumberSign',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: 'e.g., -5' }
+    ],
+    buttonText: 'Check Sign',
+    solver: solveNumberSign
+  },
+  {
+    title: 'Valid Parentheses Checker',
+    category: Category.Checker,
+    solverName: 'solveValidParentheses',
+    inputs: [
+        { id: 'str', label: 'Enter parentheses string:', type: InputType.Text, placeholder: '()[]{}' }
+    ],
+    buttonText: 'Check Validity',
+    solver: solveValidParentheses
+  },
+  {
+    title: 'Armstrong Number Checker',
+    category: Category.Checker,
+    solverName: 'solveArmstrongNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '153', min: 0 }
+    ],
+    buttonText: 'Check Armstrong',
+    solver: solveArmstrongNumber
+  },
+  {
+    title: 'Perfect Number Checker',
+    category: Category.Checker,
+    solverName: 'solvePerfectNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '28', min: 0 }
+    ],
+    buttonText: 'Check Perfect',
+    solver: solvePerfectNumber
+  },
+  {
+    title: 'Strong Number Checker',
+    category: Category.Checker,
+    solverName: 'solveStrongNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '145', min: 0 }
+    ],
+    buttonText: 'Check Strong',
+    solver: solveStrongNumber
+  },
+  {
+    title: 'Harshad Number Checker',
+    category: Category.Checker,
+    solverName: 'solveHarshadNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '18', min: 0 }
+    ],
+    buttonText: 'Check Harshad',
+    solver: solveHarshadNumber
+  },
+  {
+    title: 'Happy Number Checker',
+    category: Category.Checker,
+    solverName: 'solveHappyNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '19', min: 0 }
+    ],
+    buttonText: 'Check Happy',
+    solver: solveHappyNumber
+  },
+  {
+    title: 'Disarium Number Checker',
+    category: Category.Checker,
+    solverName: 'solveDisariumNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '89', min: 0 }
+    ],
+    buttonText: 'Check Disarium',
+    solver: solveDisariumNumber
+  },
+  {
+    title: 'Neon Number Checker',
+    category: Category.Checker,
+    solverName: 'solveNeonNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '9', min: 0 }
+    ],
+    buttonText: 'Check Neon',
+    solver: solveNeonNumber
+  },
+  {
+    title: 'Spy Number Checker',
+    category: Category.Checker,
+    solverName: 'solveSpyNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '1124', min: 0 }
+    ],
+    buttonText: 'Check Spy',
+    solver: solveSpyNumber
+  },
+  {
+    title: 'Pronic Number Checker',
+    category: Category.Checker,
+    solverName: 'solvePronicNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '12', min: 0 }
+    ],
+    buttonText: 'Check Pronic',
+    solver: solvePronicNumber
+  },
+  {
+    title: 'Kaprekar Number Checker',
+    category: Category.Checker,
+    solverName: 'solveKaprekarNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '45', min: 0 }
+    ],
+    buttonText: 'Check Kaprekar',
+    solver: solveKaprekarNumber
+  },
+  {
+    title: 'Duck Number Checker',
+    category: Category.Checker,
+    solverName: 'solveDuckNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '1023', min: 0 }
+    ],
+    buttonText: 'Check Duck',
+    solver: solveDuckNumber
+  },
+  {
+    title: 'Evil Number Checker',
+    category: Category.Checker,
+    solverName: 'solveEvilNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '3', min: 0 }
+    ],
+    buttonText: 'Check Evil',
+    solver: solveEvilNumber
+  },
+  {
+    title: 'Keith Number Checker',
+    category: Category.Checker,
+    solverName: 'solveKeithNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '197', min: 0 }
+    ],
+    buttonText: 'Check Keith',
+    solver: solveKeithNumber
+  },
+  {
+    title: 'Smith Number Checker',
+    category: Category.Checker,
+    solverName: 'solveSmithNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '4', min: 0 }
+    ],
+    buttonText: 'Check Smith',
+    solver: solveSmithNumber
+  },
+  {
+    title: 'Ugly Number Checker',
+    category: Category.Checker,
+    solverName: 'solveUglyNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '6', min: 0 }
+    ],
+    buttonText: 'Check Ugly',
+    solver: solveUglyNumber
+  },
+  {
+    title: 'Abundant Number Checker',
+    category: Category.Checker,
+    solverName: 'solveAbundantNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '12', min: 0 }
+    ],
+    buttonText: 'Check Abundant',
+    solver: solveAbundantNumber
+  },
+  {
+    title: 'Deficient Number Checker',
+    category: Category.Checker,
+    solverName: 'solveDeficientNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '8', min: 0 }
+    ],
+    buttonText: 'Check Deficient',
+    solver: solveDeficientNumber
+  },
+  {
+    title: 'Amicable Numbers Checker',
+    category: Category.Checker,
+    solverName: 'solveAmicableNumbers',
+    inputs: [
+        { id: 'num1', label: 'Enter first number:', type: InputType.Number, placeholder: '220', min: 0 },
+        { id: 'num2', label: 'Enter second number:', type: InputType.Number, placeholder: '284', min: 0 }
+    ],
+    buttonText: 'Check Amicable',
+    solver: solveAmicableNumbers
+  },
+  {
+    title: 'Triangular Number Checker',
+    category: Category.Checker,
+    solverName: 'solveTriangularNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '15', min: 0 }
+    ],
+    buttonText: 'Check Triangular',
+    solver: solveTriangularNumber
+  },
+  {
+    title: 'Emirp Number Checker',
+    category: Category.Checker,
+    solverName: 'solveEmirpNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '13', min: 0 }
+    ],
+    buttonText: 'Check Emirp',
+    solver: solveEmirpNumber
+  },
+  {
+    title: 'Validate Email',
+    category: Category.Checker,
+    solverName: 'solveValidateEmail',
+    inputs: [
+        { id: 'email', label: 'Enter email:', type: InputType.Text, placeholder: 'test@example.com' }
+    ],
+    buttonText: 'Validate',
+    solver: solveValidateEmail
+  },
+  {
+    title: 'Validate URL',
+    category: Category.Checker,
+    solverName: 'solveValidateURL',
+    inputs: [
+        { id: 'url', label: 'Enter URL:', type: InputType.Text, placeholder: 'https://example.com' }
+    ],
+    buttonText: 'Validate',
+    solver: solveValidateURL
+  },
+  {
+    title: 'Is Weekend',
+    category: Category.Checker,
+    solverName: 'solveIsWeekend',
+    inputs: [
+        { id: 'date', label: 'Enter date (YYYY-MM-DD):', type: InputType.Text, placeholder: '2024-07-27' }
+    ],
+    buttonText: 'Check',
+    solver: solveIsWeekend
+  },
+  {
+    title: 'Check ISBN',
+    category: Category.Checker,
+    solverName: 'solveCheckISBN',
+    inputs: [
+        { id: 'isbn', label: 'Enter ISBN:', type: InputType.Text, placeholder: '978-0-306-40615-7' }
+    ],
+    buttonText: 'Check',
+    solver: solveCheckISBN
+  },
+  {
+    title: 'Palindromic Number Checker',
+    category: Category.Checker,
+    solverName: 'solvePalindromicNumber',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '121', min: 0 }
+    ],
+    buttonText: 'Check Palindromic',
+    solver: solvePalindromicNumber
+  },
+  {
+    title: 'Perfect Square Checker',
+    category: Category.Checker,
+    solverName: 'solvePerfectSquare',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '25', min: 0 }
+    ],
+    buttonText: 'Check Perfect Square',
+    solver: solvePerfectSquare
+  },
+  {
+    title: 'Fibonacci Checker',
+    category: Category.Checker,
+    solverName: 'solveFibonacciChecker',
+    inputs: [
+        { id: 'num', label: 'Enter a number:', type: InputType.Number, placeholder: '8', min: 0 }
+    ],
+    buttonText: 'Check Fibonacci',
+    solver: solveFibonacciChecker
+  }
+];
