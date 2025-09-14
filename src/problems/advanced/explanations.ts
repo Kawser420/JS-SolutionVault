@@ -1,4 +1,3 @@
-
 export const ADVANCED_EXPLANATIONS: Record<string, string> = {
   solveFibonacci: `The **Fibonacci sequence** is a series of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1. The function generates this sequence up to a specified number of terms.
 
@@ -63,7 +62,7 @@ This is a very common interview problem and is used in databases, browsers, and 
 2.  **Recursive Step**: The function then checks if the objects have the same number of keys. It iterates through the keys of one object.
 3.  **Comparison**: For each key, it checks if the other object also has that key and then calls itself recursively (\`deepEqual(a[key], b[key])\`) to compare the values of those properties. If any comparison fails, the function returns \`false\`.
 4.  **Result**: If the loop completes without returning \`false\`, the objects are considered deep equal.`,
-  
+
   solveArrayPermutations: `A **permutation** of an array is a re-arrangement of its elements. For an array of size \`n\`, there are \`n!\` (n factorial) possible permutations.
 
 1.  **Concept**: The goal is to generate all possible orderings of the elements. For \`[1, 2, 3]\`, the permutations are \`[1, 2, 3]\`, \`[1, 3, 2]\`, \`[2, 1, 3]\`, \`[2, 3, 1]\`, \`[3, 1, 2]\`, and \`[3, 2, 1]\`.
@@ -71,7 +70,7 @@ This is a very common interview problem and is used in databases, browsers, and 
     *   **Base Case**: If the array is empty or has one element, there is only one permutation (the array itself).
     *   **Recursive Step**: For each element in the array, fix it as the first element. Then, generate all permutations of the *remaining* elements. Combine the fixed element with each of these sub-permutations.
 Due to the potentially huge number of results, this UI demonstrates the concept rather than generating the full list.`,
-  
+
   solveStringPermutations: `Generating all **permutations of a string** is conceptually identical to generating permutations of an array of its characters. The goal is to find every possible way the characters can be re-arranged.
 
 1.  **Method**: The problem is typically solved by treating the string as an array of characters and applying a permutation algorithm, often a recursive one.
@@ -122,5 +121,5 @@ Due to the potentially huge number of results, this UI demonstrates the concept 
     *   It checks if the character is a letter. If not, it's left unchanged (e.g., spaces, punctuation).
     *   If it is a letter, it gets the character's ASCII code. It determines the base code (either 'a' for lowercase or 'A' for uppercase).
     *   The core logic is \`(code - base + shift) % 26\`. This formula finds the new position in the alphabet, wrapping around from 'Z' back to 'A' if necessary.
-    *   The new character code is converted back to a character and appended to the result.`
+    *   The new character code is converted back to a character and appended to the result.`,
 };
