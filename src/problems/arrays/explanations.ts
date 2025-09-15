@@ -1,4 +1,3 @@
-
 export const ARRAY_EXPLANATIONS: Record<string, string> = {
   solveArraySum: `This function calculates the sum of a list of numbers using the **Array.prototype.reduce()** method.
 
@@ -180,7 +179,7 @@ export const ARRAY_EXPLANATIONS: Record<string, string> = {
 2.  **Logic**: For each element, the algorithm decides whether to extend the current subarray (by adding the element to \`maxCurrent\`) or to start a new subarray (by setting \`maxCurrent\` to the element's value). It does this with \`maxCurrent = Math.max(arr[i], maxCurrent + arr[i])\`.
 3.  **Updating Global Max**: After updating \`maxCurrent\`, it compares it with \`maxGlobal\` and updates \`maxGlobal\` if \`maxCurrent\` is larger.
 4.  **Time Complexity**: This is a very efficient single-pass algorithm with a time complexity of **O(n)**.`,
-  
+
   solveReverseLinkedList: `This problem simulates reversing a **Linked List** using an array. A linked list is a data structure where elements are linked using pointers.
 
 1.  **Array Simulation**: In this context, an array is used to represent the list's data.
@@ -238,5 +237,5 @@ export const ARRAY_EXPLANATIONS: Record<string, string> = {
   solveUniqueCount: `This function counts the number of unique elements in an array. It leverages the **Set** object for an elegant and efficient solution.
 
 1.  **Create a Set**: The input array is used to create a new \`Set\`. A \`Set\` is a collection that only stores unique values, so all duplicates from the array are automatically discarded during its creation.
-2.  **Get the Size**: The \`Set\` object has a \`.size\` property that returns the number of unique elements it contains. This provides the count directly without needing any manual iteration or counting logic.`
+2.  **Get the Size**: The \`Set\` object has a \`.size\` property that returns the number of unique elements it contains. This provides the count directly without needing any manual iteration or counting logic.`,
 };
