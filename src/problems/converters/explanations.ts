@@ -111,5 +111,5 @@ export const CONVERTER_EXPLANATIONS: Record<string, string> = {
     *   The function iterates through the Roman numeral string.
     *   In each iteration, it looks at the current symbol and the **next** symbol.
     *   If the next symbol has a greater value, it subtracts the current value from the next, adds the result to the total, and skips the next symbol.
-    *   Otherwise, it just adds the current symbol's value to the total.`
+    *   Otherwise, it just adds the current symbol's value to the total.`,
 };
