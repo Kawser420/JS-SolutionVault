@@ -92,7 +92,7 @@ export const STRING_EXPLANATIONS: Record<string, string> = {
     *   If it is, it's converted to lowercase (\`c.toLowerCase()\`).
     *   If it's not (meaning it's lowercase), it's converted to uppercase (\`c.toUpperCase()\`).
 3.  **Join**: The array of case-swapped characters is then joined back into a single string.`,
-  
+
   solveStringCompress: `This function performs a basic form of run-length encoding. It compresses a string by replacing consecutive runs of the same character with the character followed by the count.
 
 1.  **Example**: \`"aaabbcccc"\` becomes \`"a3b2c4"\`.
@@ -100,5 +100,5 @@ export const STRING_EXPLANATIONS: Record<string, string> = {
     *   The function iterates through the string, keeping track of the current character and a \`count\`.
     *   It looks ahead to the next character (\`str[i+1]\`). If the next character is the same, it increments the count.
     *   If the next character is different (or it's the end of the string), it appends the current character and its count (if the count is greater than 1) to the compressed result string. It then resets the count to 1.
-3.  **Final Check**: A common convention is to only return the compressed string if it's actually shorter than the original. This solver implements that final check.`
+3.  **Final Check**: A common convention is to only return the compressed string if it's actually shorter than the original. This solver implements that final check.`,
 };
