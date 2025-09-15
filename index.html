@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Pro - 200+ Problem Solver</title>
-    
-    <!-- Stable Import Map -->
+
     <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "@google/genai": "https://esm.sh/@google/genai@0.14.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/"
-  }
-}
-</script>
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+          "@google/genai": "https://esm.sh/@google/genai@0.14.0",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+          "react/": "https://aistudiocdn.com/react@^19.1.1/"
+        }
+      }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Main Application Script -->
     <script type="module" src="/index.tsx"></script>
 
     <style>
       /* Global Styles & CSS Variables for Themes */
-      :root, :root.light {
+      :root,
+      :root.light {
         --primary-color: #3b82f6; /* blue-500 */
         --secondary-color: #8b5cf6; /* violet-500 */
         --bg-color: #f9fafb; /* gray-50 */
@@ -42,17 +42,21 @@
         --text-color: #f9fafb; /* gray-50 */
         --border-color: #374151; /* gray-700 */
       }
-      .prose { color: var(--text-color); }
-      .prose strong { color: var(--text-color); }
+      .prose {
+        color: var(--text-color);
+      }
+      .prose strong {
+        color: var(--text-color);
+      }
 
-      /* Custom Banner Background Animation */
+      /* Custom Banner Background Animation  */
       .banner-bg {
         position: relative;
         overflow: hidden;
         background-color: var(--card-bg);
       }
       .banner-bg::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         left: 50%;
@@ -60,23 +64,40 @@
         padding-bottom: 150%;
         border-radius: 50%;
         transform: translate(-50%, -50%);
-        background-image: radial-gradient(circle, var(--primary-color) 0%, transparent 50%);
+        background-image: radial-gradient(
+          circle,
+          var(--primary-color) 0%,
+          transparent 50%
+        );
         opacity: 0.1;
         animation: pulse 10s infinite cubic-bezier(0.4, 0, 0.6, 1);
         z-index: 0;
       }
       @keyframes pulse {
-        0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.05; }
-        50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.15; }
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(0.8);
+          opacity: 0.05;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 0.15;
+        }
       }
       @keyframes fade-in {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
-<link rel="stylesheet" href="/index.css">
-</head>
-<body class="antialiased">
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body class="antialiased">
     <div id="root"></div>
-</body>
+  </body>
 </html>
