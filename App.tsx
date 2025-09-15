@@ -27,7 +27,6 @@ function App() {
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
   useEffect(() => {
-    // Simulate initial data fetching
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1200);
