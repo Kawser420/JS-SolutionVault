@@ -172,7 +172,7 @@ This is solved using a **Stack** data structure.
     *   The function extracts the digits of the number to form the initial sequence.
     *   It then generates new terms by summing the last \`k\` terms.
     *   It continues until the generated term is equal to or greater than the original number.`,
-  
+
   solveSmithNumber: `A **Smith number** is a composite number for which the sum of its digits is equal to the sum of the digits in its prime factorization.
 
 1.  **Example**: 4 is a Smith number. The sum of its digits is 4. Its prime factorization is 2 * 2. The sum of the digits of its prime factors is 2 + 2 = 4.
@@ -181,7 +181,7 @@ This is solved using a **Stack** data structure.
     *   Then, it finds the prime factorization of the number.
     *   For each prime factor, it sums its digits.
     *   It sums the results from the previous step and compares it to the original sum of digits.`,
-  
+
   solveUglyNumber: `An **Ugly number** is a positive number whose prime factors only include 2, 3, and/or 5. The sequence starts with 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, ...
 
 1.  **Logic**: The function can check this by repeatedly dividing the number by 2, 3, and 5 until it can't be divided any further.
@@ -189,13 +189,13 @@ This is solved using a **Stack** data structure.
     *   It first handles the base case that the number must be positive.
     *   It has separate loops to divide out all factors of 2, then all factors of 3, then all factors of 5.
     *   If the number that remains after all these divisions is \`1\`, then the original number's only prime factors were 2, 3, or 5.`,
-  
+
   solveAbundantNumber: `An **Abundant number** is a number for which the sum of its proper divisors is greater than the number itself.
 
 1.  **Example**: 12 is an abundant number. Its proper divisors are 1, 2, 3, 4, and 6. The sum is 1+2+3+4+6 = 16, which is greater than 12.
 2.  **Logic**: This uses the same helper function as the Perfect Number checker, which finds the sum of proper divisors.
 3.  **Comparison**: It then compares this sum to the original number. If \`sum > num\`, the number is abundant.`,
-  
+
   solveDeficientNumber: `A **Deficient number** is a number for which the sum of its proper divisors is less than the number itself.
 
 1.  **Example**: 8 is a deficient number. Its proper divisors are 1, 2, and 4. The sum is 1+2+4 = 7, which is less than 8.
@@ -211,12 +211,12 @@ This is solved using a **Stack** data structure.
     *   The function calculates the sum of the proper divisors for the first number, let's call it \`sum1\`.
     *   It calculates the sum of the proper divisors for the second number, \`sum2\`.
     *   It then checks if \`sum1\` equals the second number AND \`sum2\` equals the first number. It also must ensure the two numbers are not the same.`,
-  
+
   solveTriangularNumber: `A **Triangular number** counts objects arranged in an equilateral triangle. It is the sum of the \`n\` natural numbers from 1 to \`n\`.
 
 1.  **Example**: 15 is a triangular number because 1 + 2 + 3 + 4 + 5 = 15.
 2.  **Efficient Logic**: Instead of summing, we can use a mathematical formula. A number \`x\` is triangular if and only if \`8x + 1\` is a perfect square. The solver uses a variation of this: it checks if \`(Math.sqrt(8 * num + 1) - 1) / 2\` is an integer.`,
-  
+
   solveEmirpNumber: `An **Emirp number** (prime spelled backwards) is a prime number that results in a different prime number when its decimal digits are reversed.
 
 1.  **Example**: 13 is an Emirp number. 13 is prime, and its reversal, 31, is also a different prime number.
@@ -236,7 +236,7 @@ This is solved using a **Stack** data structure.
     *   \`[^\s@]+\`: Matches the top-level domain (like .com, .org).
     *   \`$\`: Asserts position at the end of the string.
 2.  **\`.test()\` Method**: The \`RegExp.prototype.test()\` method executes a search for a match between a regular expression and a specified string. It returns \`true\` or \`false\`.`,
-  
+
   solveValidateURL: `This function validates if a string is a valid URL by attempting to construct a **URL object**.
 
 1.  **The \`URL\` Constructor**: Modern JavaScript has a built-in \`URL\` constructor (\`new URL(urlString)\`).
@@ -249,7 +249,7 @@ This is solved using a **Stack** data structure.
 1.  **Date Object**: It first creates a JavaScript \`Date\` object from the input string.
 2.  **\`.getUTCDay()\` Method**: The \`getUTCDay()\` method is used to get the day of the week. It returns an integer where **0 represents Sunday** and **6 represents Saturday**.
 3.  **Logic**: The function checks if the returned day number is either \`0\` or \`6\`.`,
-  
+
   solveCheckISBN: `An **ISBN (International Standard Book Number)** is a numeric commercial book identifier. This function validates both ISBN-10 and ISBN-13 formats.
 
 1.  **ISBN-10 Logic**:
@@ -269,7 +269,7 @@ This is solved using a **Stack** data structure.
     *   Convert the number to a string using \`String(num)\`.
     *   Apply the same logic as the string palindrome checker: \`split('')\`, \`reverse()\`, \`join('')\`.
     *   Compare the original number string with the reversed string.`,
-  
+
   solvePerfectSquare: `A **perfect square** is an integer that is the square of an integer. In other words, its square root is an integer.
 
 1.  **Example**: 25 is a perfect square because its square root is 5. 26 is not.
@@ -284,5 +284,5 @@ This is solved using a **Stack** data structure.
 2.  **Implementation**:
     *   The function calculates both \`5 * n² + 4\` and \`5 * n² - 4\`.
     *   It then uses a helper function (the same logic as the Perfect Square Checker) to check if either of these two results is a perfect square.
-    *   If at least one of them is, the original number is a Fibonacci number. This is much more efficient than generating the Fibonacci sequence until you pass the number.`
+    *   If at least one of them is, the original number is a Fibonacci number. This is much more efficient than generating the Fibonacci sequence until you pass the number.`,
 };
